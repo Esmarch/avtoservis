@@ -1,0 +1,1295 @@
+/* =========================================================
+   «ШинаПро» — стили. Сначала телефон (mobile-first).
+   Планшет и ПК добавим на шаге «адаптив».
+   Тема: светлый «чистый сервис» — белый, графит, оранжевый акцент.
+   ========================================================= */
+
+/* ---------- 1. Переменные: цвета, шрифты, отступы ---------- */
+:root {
+  --color-bg: #ffffff;          /* основной фон */
+  --color-bg-soft: #f3f4f6;     /* светло-серый — чередование блоков */
+  --color-surface: #ffffff;     /* карточки */
+  --color-border: #e2e5e9;
+  --color-text: #1f2328;        /* графит — мягче чистого чёрного */
+  --color-muted: #5b6470;
+  --color-dark: #16191d;        /* тёмные блоки: первый экран, подвал */
+  --color-on-dark: #f3f4f6;
+  --color-accent: #ff6b00;      /* оранжевый — кнопки, цены, акценты */
+  --color-accent-hover: #ff8a33;
+  --color-on-accent: #16191d;   /* тёмный текст на оранжевом читается лучше белого */
+  --color-link: #c2410c;        /* тёмно-оранжевый для ссылок на белом (контраст 5:1) */
+  --color-error: #d92d20;
+  --color-success: #1a7f37;
+
+  --font-text: "Manrope", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-title: "Unbounded", "Manrope", system-ui, sans-serif;
+  --radius: 12px;               /* заметное скругление — «дружелюбный сервис» */
+  --shadow: 0 6px 24px rgba(22, 25, 29, 0.08);
+  --header-h: 64px;
+  --cta-h: 80px;                /* высота закреплённой кнопки внизу на телефоне */
+
+  /* «Дорожная» полоса: фирменная деталь под заголовками */
+  --stripes: repeating-linear-gradient(-45deg, var(--color-accent) 0 10px, var(--color-dark) 10px 20px);
+}
+
+/* ---------- 2. Сброс и база ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h); /* якоря не прячутся под шапку */
+}
+
+body {
+  margin: 0;
+  padding-bottom: var(--cta-h);        /* место под кнопку «Записаться» внизу */
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-link);
+}
+
+h1, h2, h3 {
+  margin: 0 0 0.5em;
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Полоса «как на шлагбауме» под заголовком блока */
+h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 6px;
+  margin-top: 14px;
+  border-radius: 3px;
+  background: var(--stripes);
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+section {
+  padding: 64px 0;
+}
+
+/* Чередуем фон, чтобы блоки визуально разделялись */
+.services,
+.booking,
+.gallery,
+.faq {
+  background: var(--color-bg-soft);
+}
+
+/* ---------- 3. Кнопки ---------- */
+.btn {
+  display: inline-block;
+  padding: 15px 28px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--outline {
+  border-color: currentColor;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-link);
+}
+
+/* Видимая рамка при навигации с клавиатуры */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 4. Шапка (закреплена сверху) ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* Без backdrop-filter: он ломает position: fixed у кнопки «Записаться» внутри шапки */
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: var(--header-h);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+/* На телефоне меню и номер прячем — места мало, остаются иконки мессенджеров */
+.nav,
+.header__phone {
+  display: none;
+}
+
+.header__contacts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.messenger {
+  display: grid;
+  place-items: center;
+  width: 44px;                /* 44px — минимальный размер «под палец» */
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.messenger svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.messenger:hover {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* Кнопка «Записаться»: на телефоне — во всю ширину внизу экрана, под большим пальцем */
+.header__cta {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  z-index: 60;
+  box-shadow: 0 8px 24px rgba(22, 25, 29, 0.25);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Скрипт добавит этот класс, когда на экране уже есть другая кнопка записи */
+.header__cta.is-hidden {
+  opacity: 0;
+  transform: translateY(120%);
+  pointer-events: none;
+}
+
+/* ---------- 5. Первый экран ---------- */
+/* Фото тёмное и затемнено градиентом — белый текст читается на любой части */
+.hero {
+  position: relative;
+  padding: 72px 0 64px;
+  color: var(--color-on-dark);
+  background:
+    linear-gradient(180deg, rgba(22, 25, 29, 0.55) 0%, rgba(22, 25, 29, 0.92) 70%),
+    url("img/hero-mobile.webp") center / cover no-repeat,
+    var(--color-dark);
+}
+
+.hero__label {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 107, 0, 0.16);
+  color: var(--color-accent-hover);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-size: 1.5rem;
+  max-width: 22ch;
+}
+
+/* Не разрывать «30–40 минут» переносом строки */
+.nowrap {
+  white-space: nowrap;
+}
+
+.hero__subtitle {
+  max-width: 52ch;
+  margin-bottom: 28px;
+  font-size: 1.05rem;
+  color: #c9ced6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero .btn--outline {
+  color: var(--color-on-dark);
+}
+
+.hero .btn--outline:hover {
+  color: var(--color-accent-hover);
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.85rem;
+  color: #c9ced6;
+}
+
+.hero__facts strong {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+/* ---------- 6. Услуги и цены ---------- */
+/* Таблица шире телефона — прокручивается внутри своей рамки, а не вся страница */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.prices {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prices__title {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.prices th,
+.prices td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.prices thead th {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.prices tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+/* Колонка «Комплекс» — главное число, выделяем */
+.prices .prices__total {
+  font-weight: 800;
+  color: var(--color-link);
+}
+
+.services__note {
+  margin: 14px 0 32px;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.services__list {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.service {
+  position: relative;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.service p {
+  color: var(--color-muted);
+}
+
+.service .service__price {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+/* Популярная услуга — оранжевая рамка и бейдж */
+.service--popular {
+  border: 2px solid var(--color-accent);
+}
+
+.service .service__badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  margin: 0;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* ---------- 7. Калькулятор шиномонтажа ----------
+   Тёмная карточка на белом фоне — блок, где «считают деньги», сразу заметен */
+.calc {
+  display: grid;
+  gap: 18px;
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+  box-shadow: var(--shadow);
+}
+
+.calc > label,
+.calc legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-weight: 800;
+}
+
+.calc fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Выпадающий список радиуса — крупный, под палец */
+.calc select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #3a4048;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 800;
+  color: var(--color-on-dark);
+  background: #22272d;
+}
+
+/* Варианты — плитки: выбранная подсвечивается оранжевым через :has(:checked) */
+.calc fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #3a4048;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.calc fieldset label:has(:checked) {
+  border-color: var(--color-accent);
+  background: rgba(255, 107, 0, 0.12);
+}
+
+.calc input[type="radio"],
+.calc input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-accent);
+}
+
+.calc__result {
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid #3a4048;
+}
+
+.calc__result output {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.calc__note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #a7aeb8;
+}
+
+/* ---------- 8. Онлайн-запись ----------
+   Радиокнопки выглядят как карточки-«чипы»:
+   сам кружок прячем, а выбранную карточку подсвечиваем через :has(:checked) */
+.booking__form {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.booking__step {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.booking__step legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+}
+
+/* Чип: услуга, пост, дата, время */
+.booking__step label:has(input[type="radio"]),
+.booking__dates label,
+.booking__slots label {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-soft);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.booking__step label:has(input[type="radio"]):hover {
+  border-color: var(--color-muted);
+}
+
+.booking__step label:has(input[type="radio"]:checked) {
+  border-color: var(--color-accent);
+  background: rgba(255, 107, 0, 0.1);
+  font-weight: 800;
+}
+
+/* Чип услуги: название слева, цена справа и без переноса */
+.booking__step label:has(input[type="radio"]):has(.chip__price) {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chip__price {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(--color-link);
+  font-weight: 800;
+}
+
+/* Кружок прячем визуально, но оставляем для клавиатуры и экранного диктора */
+.booking__step input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.booking__step label:has(input[type="radio"]:focus-visible) {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Пост, который не делает выбранную услугу, скрипт помечает hidden */
+.booking__step label[hidden] {
+  display: none;
+}
+
+/* Даты и время — сетка мелких чипов (заполнит скрипт) */
+.booking__dates,
+.booking__slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.booking__dates label,
+.booking__slots label {
+  padding: 10px 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.booking__hint {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Чип даты в три строки: день недели / число / месяц */
+.booking__weekday {
+  display: block;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+.booking__day {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* Нет свободных окон — чип блёклый и не нажимается */
+.booking__step label:has(input:disabled) {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.booking__summary {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--color-accent);
+  background: var(--color-bg-soft);
+  font-weight: 800;
+}
+
+.booking__summary:has(output:empty) {
+  display: none;
+}
+
+.booking__form .btn,
+.callback .btn {
+  width: 100%;
+}
+
+/* ---------- 9. Поля форм (запись и «Перезвоните мне») ---------- */
+.booking__step > label:not(:has(input)),
+.callback > label:not(.checkbox) {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.optional {
+  font-weight: 400;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: var(--color-accent);
+  outline: 2px solid rgba(255, 107, 0, 0.25);
+}
+
+.checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.checkbox input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--color-accent);
+}
+
+/* Ловушка для ботов — скрыта от людей */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Ошибки: незаполненный шаг и неверное поле подсвечиваем красным */
+.booking__step.is-invalid legend {
+  color: var(--color-error);
+}
+
+.booking__step.is-invalid legend::after {
+  content: " — выберите";
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+/* Сообщения после отправки */
+.booking__status,
+.callback__status {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.booking__status:empty,
+.callback__status:empty {
+  display: none;
+}
+
+.status--ok {
+  color: var(--color-success);
+  font-weight: 800;
+}
+
+.status--error {
+  color: var(--color-error);
+}
+
+form .btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ---------- 10. Почему мы ---------- */
+.why__list {
+  display: grid;
+  gap: 24px;
+  counter-reset: why;
+}
+
+/* Крупный оранжевый номер вместо иконок — не нужны лишние картинки */
+.why__list li {
+  position: relative;
+  padding-left: 56px;
+  counter-increment: why;
+}
+
+.why__list li::before {
+  content: counter(why, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.why__list h3 {
+  margin-bottom: 4px;
+}
+
+.why__list p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* ---------- 11. Фото сервиса ---------- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.gallery__item {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- 12. Отзывы ---------- */
+.reviews__rating {
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+.reviews__rating strong {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--color-link);
+}
+
+.reviews__list {
+  display: grid;
+  gap: 16px;
+}
+
+.review {
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+/* Пять звёзд перед текстом — без картинок, обычными символами */
+.review::before {
+  content: "★★★★★";
+  display: block;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+}
+
+.review footer {
+  font-weight: 800;
+}
+
+/* ---------- 13. FAQ ---------- */
+.faq details {
+  margin-bottom: 8px;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.faq summary {
+  position: relative;
+  padding: 18px 52px 18px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none; /* убираем стандартный треугольник */
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Свой значок «+», который поворачивается в «×» при открытии */
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-accent);
+  transition: transform 0.2s;
+}
+
+.faq details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq details p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: var(--color-muted);
+}
+
+/* ---------- 14. Контакты и форма «Перезвоните мне» ---------- */
+.contacts .container {
+  display: grid;
+  gap: 24px;
+}
+
+.contacts h2 {
+  margin-bottom: 0;
+}
+
+.contacts__info {
+  font-style: normal; /* браузер по умолчанию делает address курсивом */
+}
+
+.contacts__info p {
+  margin-bottom: 0.5em;
+}
+
+.contacts__info a[href^="tel"] {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.contacts__hours {
+  margin: 0;
+  font-weight: 800;
+  color: var(--color-link);
+}
+
+.callback {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--color-bg-soft);
+}
+
+.callback h3 {
+  margin-bottom: 8px;
+}
+
+.contacts__map {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-bg-soft);
+}
+
+.contacts__map iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
+/* ---------- 15. Подвал ---------- */
+.footer {
+  padding: 24px 0;
+  font-size: 0.85rem;
+  color: #a7aeb8;
+  background: var(--color-dark);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ---------- 16. Увеличение фото (лайтбокс) ----------
+   <dialog> — встроенное в браузер модальное окно:
+   само закрывается по Esc и не даёт кликать по странице под ним */
+.lightbox {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-on-dark);
+}
+
+.lightbox::backdrop {
+  background: rgba(16, 18, 21, 0.94);
+}
+
+.lightbox__inner {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 56px 12px 72px;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.lightbox__caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c9ced6;
+}
+
+.lightbox__btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  cursor: pointer;
+}
+
+.lightbox__btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.lightbox__close { top: 8px; right: 12px; }
+.lightbox__prev  { left: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox__next  { right: 12px; top: 50%; transform: translateY(-50%); }
+
+/* Пока открыт лайтбокс — страница под ним не прокручивается */
+body:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+/* =========================================================
+   АДАПТИВ. Всё, что выше, — телефон.
+   Ниже только то, что меняется на экранах шире.
+   ========================================================= */
+
+/* ---------- Планшет: от 768px ---------- */
+@media (min-width: 768px) {
+  section {
+    padding: 88px 0;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+  }
+
+  /* Кнопка «Записаться» возвращается в шапку — внизу экрана она больше не нужна */
+  body {
+    padding-bottom: 0;
+  }
+
+  .header__cta,
+  .header__cta.is-hidden {
+    position: static;
+    padding: 11px 20px;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .header__inner {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .header__phone {
+    display: inline;
+    margin-right: 6px;
+    font-weight: 800;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  /* Широкое фото — только для больших экранов: телефон его не скачивает */
+  .hero {
+    padding: 120px 0 96px;
+    background:
+      linear-gradient(90deg, rgba(22, 25, 29, 0.95) 0%, rgba(22, 25, 29, 0.75) 55%, rgba(22, 25, 29, 0.35) 100%),
+      url("img/hero.webp") center / cover no-repeat,
+      var(--color-dark);
+  }
+
+  .hero__title {
+    font-size: 2.3rem;
+  }
+
+  .hero__facts {
+    max-width: 560px;
+    font-size: 0.9rem;
+  }
+
+  .hero__facts strong {
+    font-size: 1.15rem;
+  }
+
+  .services__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calc {
+    padding: 32px;
+  }
+
+  .booking__form {
+    padding: 32px;
+  }
+
+  /* Даты — неделя в строку, время — по 6 */
+  .booking__dates {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .booking__slots {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .why__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  /* Три коротких отзыва — сразу в ряд, чтобы не оставалось «дырки» 2+1 */
+  .reviews__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review {
+    padding: 20px;
+  }
+
+  .faq .container {
+    max-width: 820px;
+  }
+
+  /* Контакты: слева адрес и форма, справа карта на всю высоту */
+  .contacts .container {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+
+  .contacts h2,
+  .contacts__info,
+  .contacts__hours,
+  .callback {
+    grid-column: 1;
+  }
+
+  .contacts__map {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+  }
+
+  .contacts__map iframe {
+    height: 100%;
+    min-height: 480px;
+  }
+}
+
+/* ---------- ПК: от 1024px ---------- */
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  /* Меню появляется только тут: на планшете шапка была бы переполнена */
+  .nav {
+    display: block;
+    margin-right: auto;
+  }
+
+  .logo {
+    margin-right: 40px;
+  }
+
+  .nav__list {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav__list a {
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav__list a:hover {
+    color: var(--color-link);
+  }
+
+  .hero {
+    padding: 150px 0 120px;
+  }
+
+  .hero__title {
+    font-size: 2.9rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.15rem;
+  }
+
+  .services__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Калькулятор в две колонки: слева радиус и тип авто, справа работы, итог — снизу во всю ширину */
+  .calc {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    padding: 40px;
+  }
+
+  .calc > label              { grid-column: 1; grid-row: 1; }
+  .calc > select             { grid-column: 1; grid-row: 2; }
+  .calc > fieldset:nth-of-type(1) { grid-column: 1; grid-row: 3; }
+  .calc > fieldset:nth-of-type(2) { grid-column: 2; grid-row: 1 / span 3; align-self: start; }
+
+  .calc__result,
+  .calc__note {
+    grid-column: 1 / -1;
+  }
+
+  .calc > .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  /* Запись: услуга и пост рядом, остальное — во всю ширину */
+  .booking__form {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    padding: 40px;
+  }
+
+  .booking__form > * {
+    grid-column: 1 / -1;
+  }
+
+  .booking__form > .booking__step:nth-of-type(1) { grid-column: 1; }
+  .booking__form > .booking__step:nth-of-type(2) { grid-column: 2; align-self: start; }
+
+  .booking__slots {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  /* Контакты записи — три поля в строку экономят высоту */
+  .booking__form > .booking__step:nth-of-type(5) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+  }
+
+  .booking__step:nth-of-type(5) > label[for] {
+    grid-row: 1;
+  }
+
+  .booking__step:nth-of-type(5) > input {
+    grid-row: 2;
+  }
+
+  .booking__step:nth-of-type(5) > label[for="book-comment"],
+  .booking__step:nth-of-type(5) > textarea,
+  .booking__step:nth-of-type(5) > .checkbox {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .booking__form > .btn {
+    justify-self: start;
+    width: auto;
+    min-width: 280px;
+  }
+
+  .why__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .gallery__grid {
+    gap: 16px;
+  }
+
+  .reviews__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contacts .container {
+    column-gap: 48px;
+  }
+}

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <title>Шиномонтаж и автосервис в Сормово — запись онлайн | ШинаПро, Нижний Новгород</title>
+  <meta name="description" content="Шиномонтаж за 30–40 минут, балансировка, хранение шин, ТО и диагностика в Сормовском районе Нижнего Новгорода. Рассчитайте цену и запишитесь онлайн на удобное время. Ежедневно 8:00–21:00.">
+
+  <!-- Open Graph: как ссылка выглядит в мессенджерах и соцсетях -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Шиномонтаж «ШинаПро» — без очереди, запись онлайн">
+  <meta property="og:description" content="Переобуем за 30–40 минут. Калькулятор цены и онлайн-запись на сайте.">
+  <meta property="og:url" content="https://esmarch.github.io/avtoservis/">
+  <meta property="og:image" content="https://esmarch.github.io/avtoservis/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Иконки -->
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <meta name="theme-color" content="#1f2328">
+
+  <!-- Шрифты: Unbounded — широкий «технический» для заголовков, Manrope — для текста.
+       preconnect ускоряет загрузку, display=swap показывает текст сразу -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Микроразметка: поисковики понимают, что это автосервис, его адрес, телефон и часы -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "ШинаПро",
+    "image": "https://esmarch.github.io/avtoservis/img/og-image.jpg",
+    "url": "https://esmarch.github.io/avtoservis/",
+    "telephone": "+7-999-000-00-00",
+    "priceRange": "400–5000 ₽",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Примерная, 42",
+      "addressLocality": "Нижний Новгород",
+      "addressRegion": "Сормовский район",
+      "addressCountry": "RU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 56.3530, "longitude": 43.8640 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "21:00"
+    }]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 1. Шапка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">Шина<span>Про</span></a>
+
+      <nav class="nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a href="#services">Цены</a></li>
+          <li><a href="#calculator">Калькулятор</a></li>
+          <li><a href="#booking">Запись</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__contacts">
+        <a href="tel:+79990000000" class="header__phone">+7 (999) 000-00-00</a>
+        <!-- Иконки мессенджеров — SVG из Simple Icons (simpleicons.org), лицензия CC0 -->
+        <a href="https://wa.me/79990000000" class="messenger messenger--wa" aria-label="Написать в WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a href="https://t.me/shinapro_demo" class="messenger messenger--tg" aria-label="Написать в Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.906 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+
+      <!-- На телефоне эта кнопка закрепится внизу экрана -->
+      <a href="#booking" class="btn btn--primary header__cta">Записаться</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 2. Первый экран -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero__label">Шиномонтаж и автосервис в Сормово</p>
+        <h1 class="hero__title">Переобуем <span class="nowrap">за 30–40 минут</span> и&nbsp;починим без&nbsp;очереди — запись онлайн на&nbsp;удобное время</h1>
+        <p class="hero__subtitle">3 поста, своё оборудование для колёс до R22. Приезжаете ко времени — машину сразу загоняем в бокс.</p>
+        <div class="hero__actions">
+          <a href="#booking" class="btn btn--primary">Записаться</a>
+          <a href="#calculator" class="btn btn--outline">Рассчитать цену</a>
+        </div>
+        <ul class="hero__facts">
+          <li><strong>4,8 ★</strong> на Яндекс.Картах</li>
+          <li><strong>от 1 600 ₽</strong> за комплект</li>
+          <li><strong>8:00–21:00</strong> без выходных</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Услуги и цены -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Услуги и цены</h2>
+
+        <h3 class="prices__title" id="prices-title">Шиномонтаж комплекта (4 колеса), легковой автомобиль</h3>
+        <!-- «Комплекс» стоит второй колонкой: на телефоне таблица прокручивается вбок,
+             а главная цена видна сразу, без прокрутки -->
+        <div class="table-wrap">
+          <table class="prices" aria-labelledby="prices-title">
+            <thead>
+              <tr><th scope="col">Радиус</th><th scope="col">Комплекс</th><th scope="col">Снятие и установка</th><th scope="col">Монтаж шин</th><th scope="col">Балансировка</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">R13–R15</th><td class="prices__total">1 600 ₽</td><td>400 ₽</td><td>600 ₽</td><td>600 ₽</td></tr>
+              <tr><th scope="row">R16–R17</th><td class="prices__total">2 000 ₽</td><td>500 ₽</td><td>750 ₽</td><td>750 ₽</td></tr>
+              <tr><th scope="row">R18–R19</th><td class="prices__total">2 600 ₽</td><td>650 ₽</td><td>1 000 ₽</td><td>950 ₽</td></tr>
+              <tr><th scope="row">R20+</th><td class="prices__total">3 200 ₽</td><td>800 ₽</td><td>1 250 ₽</td><td>1 150 ₽</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="services__note">Кроссовер — ×1,2, внедорожник и минивэн — ×1,4. Точную цену посчитает <a href="#calculator">калькулятор</a>.</p>
+
+        <ul class="services__list">
+          <li class="service">
+            <h3>Ремонт прокола</h3>
+            <p>Жгут или латка изнутри, проверка на герметичность.</p>
+            <p class="service__price">от 400 ₽</p>
+          </li>
+          <li class="service">
+            <h3>Хранение шин</h3>
+            <p>Мойка, пакеты, стеллажи в тёплом складе. Комплект до 6 месяцев.</p>
+            <p class="service__price">2 500 ₽ / сезон</p>
+          </li>
+          <li class="service service--popular">
+            <p class="service__badge">Популярно</p>
+            <h3>Техобслуживание</h3>
+            <p>Масло, фильтры, проверка по 25 пунктам. Ваши или наши запчасти.</p>
+            <p class="service__price">от 2 500 ₽</p>
+          </li>
+          <li class="service">
+            <h3>Компьютерная диагностика</h3>
+            <p>Считываем ошибки, объясняем, что срочно, а что может подождать.</p>
+            <p class="service__price">1 000 ₽</p>
+          </li>
+          <li class="service">
+            <h3>Замена масла</h3>
+            <p>Двигатель за 30 минут. Масло можно привезти своё.</p>
+            <p class="service__price">600 ₽ работа</p>
+          </li>
+        </ul>
+        <a href="#booking" class="btn btn--outline">Выбрать время</a>
+      </div>
+    </section>
+
+    <!-- 4. Калькулятор шиномонтажа. Цены — в настройках CALC в script.js -->
+    <section class="calculator" id="calculator" aria-labelledby="calc-title">
+      <div class="container">
+        <h2 id="calc-title">Сколько стоит шиномонтаж</h2>
+        <form class="calc" id="calc-form">
+          <label for="calc-radius">Радиус колеса</label>
+          <select id="calc-radius" name="radius">
+            <option value="R13">R13</option>
+            <option value="R14">R14</option>
+            <option value="R15" selected>R15</option>
+            <option value="R16">R16</option>
+            <option value="R17">R17</option>
+            <option value="R18">R18</option>
+            <option value="R19">R19</option>
+            <option value="R20">R20</option>
+            <option value="R21">R21</option>
+            <option value="R22">R22</option>
+          </select>
+
+          <fieldset>
+            <legend>Тип автомобиля</legend>
+            <label><input type="radio" name="car" value="Легковой" checked> Легковой</label>
+            <label><input type="radio" name="car" value="Кроссовер"> Кроссовер</label>
+            <label><input type="radio" name="car" value="Внедорожник"> Внедорожник / минивэн</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Что сделать</legend>
+            <label><input type="checkbox" name="work" value="removal" checked> Снять и поставить колёса</label>
+            <label><input type="checkbox" name="work" value="mount" checked> Перемонтировать шины на дисках</label>
+            <label><input type="checkbox" name="work" value="balance" checked> Балансировка</label>
+            <label><input type="checkbox" name="work" value="storage"> Хранение снятого комплекта (сезон)</label>
+          </fieldset>
+
+          <p class="calc__result">Итого за 4 колеса: <output id="calc-result" for="calc-radius">1 600 ₽</output></p>
+          <p class="calc__note">Окончательную цену мастер назовёт до начала работ, если что-то отличается.</p>
+          <a href="#booking" class="btn btn--primary" id="calc-to-booking">Записаться с этой ценой</a>
+        </form>
+      </div>
+    </section>
+
+    <!-- 5. Онлайн-запись (по образцу barbershop).
+         Услуги и посты берутся из разметки: data-kind — тип работ (tire — шиномонтаж, repair — ремонт),
+         data-duration — минуты. Посты, которые не делают выбранную услугу, скрипт скроет.
+         Даты и свободное время скрипт построит по расписанию BOOKING в начале script.js. -->
+    <section class="booking" id="booking" aria-labelledby="booking-title">
+      <div class="container">
+        <h2 id="booking-title">Онлайн-запись</h2>
+        <p>Выберите услугу, бокс и время — подтвердим в течение 15 минут.</p>
+
+        <form class="booking__form" id="booking-form" novalidate>
+
+          <fieldset class="booking__step">
+            <legend>1. Услуга</legend>
+            <label><input type="radio" name="service" value="Шиномонтаж комплекта" data-kind="tire" data-duration="60" required> <span>Шиномонтаж комплекта</span> <span class="chip__price">от 1 600 ₽</span></label>
+            <label><input type="radio" name="service" value="Ремонт прокола" data-kind="tire" data-duration="30"> <span>Ремонт прокола</span> <span class="chip__price">от 400 ₽</span></label>
+            <label><input type="radio" name="service" value="Техобслуживание" data-kind="repair" data-duration="90"> <span>Техобслуживание</span> <span class="chip__price">от 2 500 ₽</span></label>
+            <label><input type="radio" name="service" value="Компьютерная диагностика" data-kind="repair" data-duration="60"> <span>Компьютерная диагностика</span> <span class="chip__price">1 000 ₽</span></label>
+            <label><input type="radio" name="service" value="Замена масла" data-kind="repair" data-duration="30"> <span>Замена масла</span> <span class="chip__price">600 ₽</span></label>
+          </fieldset>
+
+          <fieldset class="booking__step">
+            <legend>2. Пост</legend>
+            <label><input type="radio" name="post" value="Любой" data-kind="any" checked> Любой свободный</label>
+            <label><input type="radio" name="post" value="Бокс 1" data-kind="tire"> Бокс 1 — шиномонтаж</label>
+            <label><input type="radio" name="post" value="Бокс 2" data-kind="tire"> Бокс 2 — шиномонтаж</label>
+            <label><input type="radio" name="post" value="Бокс 3" data-kind="repair"> Бокс 3 — ремонт и ТО</label>
+          </fieldset>
+
+          <fieldset class="booking__step">
+            <legend>3. Дата</legend>
+            <div class="booking__dates" id="booking-dates">
+              <noscript><p class="booking__hint">Для онлайн-записи включите JavaScript или позвоните: +7 (999) 000-00-00</p></noscript>
+            </div>
+          </fieldset>
+
+          <fieldset class="booking__step">
+            <legend>4. Время</legend>
+            <div class="booking__slots" id="booking-slots">
+              <p class="booking__hint">Сначала выберите услугу и дату.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="booking__step">
+            <legend>5. Контакты</legend>
+            <label for="book-name">Имя</label>
+            <input type="text" id="book-name" name="name" autocomplete="name" required>
+
+            <label for="book-phone">Телефон</label>
+            <input type="tel" id="book-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+
+            <label for="book-car">Марка и модель авто</label>
+            <input type="text" id="book-car" name="car" placeholder="Например, Kia Rio" required>
+
+            <label for="book-comment">Комментарий <span class="optional">(необязательно)</span></label>
+            <textarea id="book-comment" name="comment" rows="2"></textarea>
+
+            <!-- Ловушка для спам-ботов: человек это поле не видит и не заполняет -->
+            <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <label class="checkbox">
+              <input type="checkbox" name="agree" required checked>
+              Согласен на обработку персональных данных
+            </label>
+          </fieldset>
+
+          <!-- Итог выбора: «Шиномонтаж комплекта, Бокс 1, пт 14 ноября, 10:00» -->
+          <p class="booking__summary" aria-live="polite"><output id="booking-summary"></output></p>
+
+          <button type="submit" class="btn btn--primary">Записаться</button>
+          <p class="booking__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 6. Почему мы -->
+    <section class="why" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title">Почему к нам</h2>
+        <ul class="why__list">
+          <li><h3>Без очереди</h3><p>Записались на 10:00 — в 10:00 машина в боксе.</p></li>
+          <li><h3>Цена до начала работ</h3><p>Называем сумму заранее, лишнего не делаем без вашего согласия.</p></li>
+          <li><h3>Гарантия</h3><p>На шиномонтаж — 1 месяц, на ремонт и ТО — 6 месяцев.</p></li>
+          <li><h3>Современные станки</h3><p>Безрычажный монтаж: не царапаем литые диски, работаем с низким профилем и Run Flat.</p></li>
+          <li><h3>Тёплый зал ожидания</h3><p>Кофе, Wi-Fi и окно в бокс — видно, что делают с вашей машиной.</p></li>
+          <li><h3>Удобная оплата</h3><p>Карта, СБП по QR-коду или наличные. Чек и заказ-наряд.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Фото сервиса: в сетке — лёгкие превью, по клику — большое фото -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title">Наш сервис</h2>
+        <ul class="gallery__grid">
+          <li><a href="img/photo-1.webp" class="gallery__item"><img src="img/photo-1-thumb.webp" alt="Мастер снимает колесо с автомобиля на подъёмнике" width="400" height="400" loading="lazy"></a></li>
+          <li><a href="img/photo-2.webp" class="gallery__item"><img src="img/photo-2-thumb.webp" alt="Балансировка колеса на станке" width="400" height="400" loading="lazy"></a></li>
+          <li><a href="img/photo-3.webp" class="gallery__item"><img src="img/photo-3-thumb.webp" alt="Шины на стеллажах склада хранения" width="400" height="400" loading="lazy"></a></li>
+          <li><a href="img/photo-4.webp" class="gallery__item"><img src="img/photo-4-thumb.webp" alt="Автомобиль на подъёмнике в боксе ремонта" width="400" height="400" loading="lazy"></a></li>
+          <li><a href="img/photo-5.webp" class="gallery__item"><img src="img/photo-5-thumb.webp" alt="Механик проверяет двигатель под капотом" width="400" height="400" loading="lazy"></a></li>
+          <li><a href="img/photo-6.webp" class="gallery__item"><img src="img/photo-6-thumb.webp" alt="Инструменты мастера на стене бокса" width="400" height="400" loading="lazy"></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. Отзывы + рейтинг -->
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title">Отзывы</h2>
+        <p class="reviews__rating">
+          <strong>4,8 ★</strong> — 214 оценок на
+          <a href="https://yandex.ru/maps/" target="_blank" rel="noopener">Яндекс.Картах</a>
+        </p>
+        <div class="reviews__list">
+          <blockquote class="review">
+            <p>В сезон везде очереди по 2 часа. Тут записался с сайта на 8 утра, переобули за 35 минут и успел на работу.</p>
+            <footer>— Андрей, Hyundai Solaris</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>Литые диски R19 — боялась, что поцарапают. Всё аккуратно, ещё и показали, что одна шина с грыжей.</p>
+            <footer>— Ольга, Kia Sportage</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>Делал ТО со своим маслом и фильтрами. Цену назвали сразу, по факту столько же. Буду ездить сюда.</p>
+            <footer>— Сергей, Skoda Octavia</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ: details/summary — аккордеон без JavaScript -->
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Частые вопросы</h2>
+        <details>
+          <summary>Можно приехать без записи?</summary>
+          <p>Можно, если есть свободный бокс. В сезон переобувки (апрель и октябрь–ноябрь) лучше записаться — это минута.</p>
+        </details>
+        <details>
+          <summary>Сколько длится шиномонтаж?</summary>
+          <p>Комплект из 4 колёс на легковой машине — 30–40 минут, на внедорожнике — до часа.</p>
+        </details>
+        <details>
+          <summary>Можно привезти свои запчасти и масло?</summary>
+          <p>Да. Гарантия на работу сохраняется, на детали — от продавца.</p>
+        </details>
+        <details>
+          <summary>Как работает хранение шин?</summary>
+          <p>Моем колёса, упаковываем, выдаём квитанцию. Весь сезон шины лежат на тёплом складе, а в начале нового сезона мы их ставим на машину.</p>
+        </details>
+        <details>
+          <summary>Как перенести или отменить запись?</summary>
+          <p>Напишите в Telegram или WhatsApp, либо позвоните — хотя бы за час до времени записи.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 10. Контакты, часы работы, карта, форма «Перезвоните мне» -->
+    <section class="contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <h2 id="contacts-title">Контакты</h2>
+        <address class="contacts__info">
+          <p>Нижний Новгород, Сормовский район, ул. Примерная, 42 — въезд со двора</p>
+          <p><a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+          <p><a href="https://t.me/shinapro_demo">Telegram</a> · <a href="https://wa.me/79990000000">WhatsApp</a></p>
+        </address>
+        <p class="contacts__hours">Ежедневно, <time datetime="08:00">8:00</time>–<time datetime="21:00">21:00</time></p>
+
+        <form class="callback" id="callback-form" novalidate>
+          <h3>Перезвоните мне</h3>
+          <label for="cb-name">Имя</label>
+          <input type="text" id="cb-name" name="name" autocomplete="name" required>
+          <label for="cb-phone">Телефон</label>
+          <input type="tel" id="cb-phone" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <label for="cb-question">Вопрос <span class="optional">(необязательно)</span></label>
+          <textarea id="cb-question" name="question" rows="2" placeholder="Например: сколько стоит ремонт бокового пореза?"></textarea>
+          <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="checkbox">
+            <input type="checkbox" name="agree" required checked>
+            Согласен на обработку персональных данных
+          </label>
+          <button type="submit" class="btn btn--primary">Жду звонка</button>
+          <p class="callback__status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contacts__map">
+          <!-- Виджет Яндекс.Карт: ll — долгота,широта центра; z — масштаб; pt — метка -->
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=43.864000%2C56.353000&z=15&pt=43.864000%2C56.353000%2Cpm2rdm"
+            title="Автосервис «ШинаПро» на карте Нижнего Новгорода"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 «ШинаПро». Демо-сайт, автосервис вымышленный.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
