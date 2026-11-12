@@ -10,7 +10,7 @@
    Адрес веб-приложения Google Apps Script, который пересылает заявки в Telegram.
    Как получить — в файле «НАСТРОЙКА-ФОРМЫ.md».
    Пока строка пустая, формы работают в демо-режиме: показывают «успех», ничего не отправляя. */
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbw0FLNCuWKYgL1PUVFZROeZAHWOIQyjWYumDYzmRiBlwoQf1AwWrlnkvVFdPYIycVE/exec";
 
 /* Цены калькулятора — за комплект из 4 колёс, легковой автомобиль.
    Должны совпадать с таблицей в блоке «Услуги и цены» (index.html). */
